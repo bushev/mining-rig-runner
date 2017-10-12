@@ -1,0 +1,13 @@
+---
+
+#- name:      Copy driver
+#  unarchive: src=amdgpu-pro-16.40-348864.tar.xz dest=/home/min
+#
+#- name: Install driver
+#  command: /home/min/amdgpu-pro-16.40-348864/amdgpu-pro-install -y
+
+- name:      Copy driver
+  unarchive: src=amdgpu-pro-16.60-379184.tar.xz dest=/home/min
+
+- name: Install driver
+  command: /home/min/amdgpu-pro-16.60-379184/amdgpu-pro-install -y

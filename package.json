@@ -1,0 +1,29 @@
+{
+  "name": "mining-rig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "mining-rig": "rig.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bushev/mining-rig.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bushev/mining-rig/issues"
+  },
+  "homepage": "https://github.com/bushev/mining-rig#readme",
+  "dependencies": {
+    "async": "2.2.0",
+    "lodash": "4.17.4",
+    "merge": "1.2.0",
+    "request": "2.81.0",
+    "winston": "2.3.1"
+  }
+}

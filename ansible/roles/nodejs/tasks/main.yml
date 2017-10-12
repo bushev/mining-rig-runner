@@ -1,0 +1,20 @@
+---
+
+- name: Get NodeJS installation script (https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+  get_url: url=https://deb.nodesource.com/setup_6.x dest=/tmp/setup_6.x mode=0777
+
+- name: Run NodeJS installation script
+  command: bash /tmp/setup_6.x
+  become: true
+
+- name: Install NodeJS 6.x
+  command: apt-get install -y nodejs
+  become: true
+
+#- name: Install NodeJS global packages
+#  npm: name={{ item.name }} global=yes
+#  with_items:
+#          - { name: 'grunt' }
+#          - { name: 'typings' }
+#          - { name: 'bower' }
+#  become: true

@@ -1,0 +1,13 @@
+---
+
+#- name: Install git-lfs
+#  command: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+#  become: true
+
+- name: Install git
+  apt:  name=git state=latest
+  become: true
+
+#- name: Install git
+#  apt:  name=git-lfs state=latest
+#  become: true

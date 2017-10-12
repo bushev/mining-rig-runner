@@ -1,0 +1,11 @@
+[rig1]
+192.168.1.124 ansible_connection=ssh ansible_ssh_user=min ansible_ssh_pass=YOUR_RIG_SSH_PASS_1
+
+[rig2]
+192.168.1.239 ansible_connection=ssh ansible_ssh_user=min ansible_ssh_pass=YOUR_RIG_SSH_PASS_2
+
+[rig3]
+192.168.1.61 ansible_connection=ssh ansible_ssh_user=min ansible_ssh_pass=YOUR_RIG_SSH_PASS_3
+
+[ssh_connection]
+pipelining=True

@@ -1,0 +1,20 @@
+---
+- name: Configure rig
+  hosts: rig1 rig2 rig3
+  roles:
+    # Uncomment for initial setup
+    - amdgpu-pro
+    - git
+    - nodejs
+    - miner
+
+  vars_prompt:
+    - name:   'github_password'
+      prompt: 'Enter your GitHub password'
+      private: yes
+
+  tasks:
+    - apt: name=htop state=latest
+      become: true
+    - apt: name=tmux state=latest
+      become: true

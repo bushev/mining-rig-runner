@@ -1,0 +1,35 @@
+---
+
+- file: path=/home/min/.ssh state=directory mode=0755
+
+- name:  ssh-keyscan the git server
+  shell: ssh-keyscan -H -t dsa github.com >> /home/min/.ssh/known_hosts 2>&1
+
+- name: Checkout project from github.com
+  git:  "repo=https://bushev:{{ github_password }}@github.com/bushev/mining-rig.git
+         dest=/home/min/mining-rig
+         version=master
+         force=yes"
+
+- file: path=/home/min/mining-rig/set-fans-speed.sh state=file mode=0751
+  become: true
+
+- name: Install NPM dependencies
+  npm:
+    path: /home/min/mining-rig
+
+#- name: Add miner init.d daemon script
+#  action: template src=templates/miner.template.j2 dest=/etc/init.d/miner.service mode=0751
+#  become: true
+
+- name: Add miner init.d daemon script
+  action: template src=templates/miner.template.j2 dest=/etc/systemd/system/miner.service mode=0751
+  become: true
+
+- name: Ensure daemon miner is started
+  action: service name=miner enabled=yes #state=started
+  become: true
+
+- name: Restart miner daemon
+  action: service name=miner state=restarted
+  become: true

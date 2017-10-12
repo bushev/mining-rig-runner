@@ -1,0 +1,13 @@
+[Unit]
+Description=Job that runs the miner daemon
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+Environment=statedir=/var/cache/miner
+ExecStart=/usr/bin/node /home/min/mining-rig/rig.js &
+PIDFile=/var/run/miner.pid
+
+[Install]
+WantedBy=multi-user.target
